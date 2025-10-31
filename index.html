@@ -218,6 +218,12 @@ async function fetchStaff(){
     console.error(err);
   }
 }
+  // Pin web app on Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      window.parent.postMessage({type: "pin"}, "*");
+    }
+  });
 
 setInterval(fetchStaff,10000);
 fetchStaff();
